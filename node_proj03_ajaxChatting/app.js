@@ -9,8 +9,9 @@ app.use(cors());
 
 let messages = [];
 
-router.route("/recieve", (req, res) => {
-    if(req.query,size >= messages.length ) {
+router.route("/recive").get((req, res) => {
+    console.log("/recive 요청됨.");
+    if(req.query.size >= messages.length ) {
         res.end();
     } else {
         let result = {
@@ -22,10 +23,11 @@ router.route("/recieve", (req, res) => {
     }
 });
 
-router.route("/send", (req, res) => {
+router.route("/send").get((req, res) => {
+    console.log("/send 요청됨.");
     messages.push({
         sender: req.query.sender,
-        maessage: req.query.message
+        message: req.query.message
     });
     res.end();
 });
