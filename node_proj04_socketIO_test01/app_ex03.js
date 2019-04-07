@@ -5,7 +5,6 @@ var cors = require('cors');
 var socketio = require('socket.io');
 
 //app.use(cors());
-// app_ex03.js
 
 var server = http.createServer(app);
 server.listen(3000, function() {
