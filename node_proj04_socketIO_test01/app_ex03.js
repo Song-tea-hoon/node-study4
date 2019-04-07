@@ -20,5 +20,5 @@ io.sockets.on('connection', function(socket){
     
     socket.on('private message', function(from, msg){
         console.log('private message by ', from, msg);
-    })
-})
+    });
+});
