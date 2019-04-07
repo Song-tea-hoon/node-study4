@@ -5,6 +5,7 @@
     <title>NodeJs를 활용한 계산기 프로그램</title>
 </head>
 <body>
+   <h1>NodeJs를 활용한 계산기 프로그램</h1>
     <form action="">
         <input type="text" name="a">
         <input type="text" name="b">
@@ -18,5 +19,41 @@
     </form>
     <hr>
     <div id="result">결과: </div>
+    <script>
+        var form = document.forms[0];
+        form.onsubmit = function(e) {
+            e.preventDefault();
+            if(this.a.value == ''){
+                alert('a항을 입력하세요');
+                this.a.focus();
+                return;
+            }
+            if(this.b.value == '') {
+                alert('b항을 입력하세요');
+                this.b.focus();
+                return;
+            }
+            
+            var aValue = this.a.value;
+            var bValue = this.b.value;
+            var op = this.op.value;
+            var url = "http://localhost:8888/"+op+"/"+aValue+"/"+bValue;
+            
+            var xhr = new XMLHttpRequest();
+            
+            xhr.onreadystatechange = function() {
+                console.log('readyState', this.readyState, 'status', this.status);
+                if( this.readyState == 4 && this.status == 200 ) {
+                    console.log(this.responseText);
+                    var result = document.getElementById('result');
+                    result.innerHTML = "결과 : " + this.responseText;
+                }
+            }
+            console.log(url)
+            xhr.open("GET", url, true); // 3번째 인자는 비동기식(true)
+            
+            xhr.send();
+        };
+    </script>
 </body>
 </html>

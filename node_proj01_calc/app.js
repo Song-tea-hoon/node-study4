@@ -2,7 +2,12 @@ const http = require('http');
 const express = require('express');
 const app = express();
 const router = express.Router();
+// CORS를 해결하기 위한 미들웨어
+const cors = require('cors');
+// CORS미들웨어 설정
 app.set('port', 8888);
+
+app.use(cors());
 
 router.route("/plus/:a/:b").get((req, res)=>{
     let a = req.params.a; // 문자열 타입
@@ -15,7 +20,7 @@ router.route("/plus/:a/:b").get((req, res)=>{
 router.route("/minus/:a/:b").get((req, res)=>{
     let a = req.params.a; // 문자열 타입
     let b = req.params.b; 
-    res.end(String(parseInt(a) + parseInt(b)));
+    res.end(String(parseInt(a) - parseInt(b)));
 })
 
 router.route("/mult/:a/:b").get((req, res)=>{
