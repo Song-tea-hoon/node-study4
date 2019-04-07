@@ -22,9 +22,9 @@ var server = http.createServer(app).listen(app.get('port'), function() {
     console.log('서버가 시작되었습니다. 포트: ' + app.get('port'));
     
 });
-
+// 소켓 서버 실행
 var io = socketio.listen(server);
-
+/// 소켓 연결 및 정보 노출
 io.sockets.on('connecton', function(socket){
     console.log('connection info: ', socket.request.connetion._peername);
     

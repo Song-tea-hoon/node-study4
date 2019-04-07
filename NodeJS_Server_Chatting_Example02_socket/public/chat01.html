@@ -19,6 +19,7 @@
             console.log('connectToServer ...');
             
             var options = {'forceNew':true};
+            // 사용자가 임의로 url port생성 하여 socket연결
             var url = 'http://'+ host +':'+port;
             console.log('url => ' + url);
             socket = io.connect(url, options);
