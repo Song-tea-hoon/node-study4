@@ -7,6 +7,7 @@
 <body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
     <script>
+        // app_ex05_callback.js
         var socket = io.connect('http://localhost:3000');
         socket.on('connect', function(){
             console.log('서버에 소켓 연결');
