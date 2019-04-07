@@ -33,6 +33,7 @@ router.route("/div/:a/:b").get((req, res)=>{
 
 app.use(cors());
 app.use('/', router);
+
 const server = http.createServer(app);
 app.listen(app.get('port'), () => {
     console.log('localhost:', app.get('port'));
