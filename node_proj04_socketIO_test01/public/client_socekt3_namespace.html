@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>/public/client_socket03_namespace.html</title>
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
+    
+    <script>
+        var chat = io.connect('http://localhost:3000/chat');
+        var news = io.connect('http://localhost:3000/news');
+        
+        chat.on('socket message', function(msg){
+            console.log("socket>>> ", msg);
+        })
+        
+        chat.on('chat message', function(msg){
+            console.log("chat>>> ",msg)
+        })
+    </script>
+</body>
+</html>
