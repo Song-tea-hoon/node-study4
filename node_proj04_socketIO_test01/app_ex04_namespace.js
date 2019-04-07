@@ -16,12 +16,14 @@ var io = socketio.listen(server);
 var chat = io.of('/chat').on('connection', function(socket){
    console.log('chat connection event ...');
     
-    //chat 변수와 socket변수로 데이터 확인 테스트
+    // chat 변수와 socket변수로 데이터 확인 테스트
+    // 현재 연결된 소켓만 이벤트 발생
     socket.emit('socket message', {
         that: 'only',
         '/chat': 'will get'
     });
     
+    // chat과 관련된 모든 socket에 이벤트 발생
     chat.emit('chat message', {
         that: 'in',
         '/chat': 'will get'
