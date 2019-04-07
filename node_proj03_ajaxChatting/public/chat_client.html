@@ -37,8 +37,6 @@
             xhr.send();
         }, 1000);
         
-        console.log($('form'))
-        
         $('form').submit(function(event){
             event.preventDefault();
             var sender = $(':input[name=sender]').val();
