@@ -28,4 +28,26 @@ var chat = io.of('/chat').on('connection', function(socket){
         that: 'in',
         '/chat': 'will get'
     });
+    
+    // 메세지 받기
+    chat.on('hi', function(msg) {
+        console.log('chat hi >>> ', msg);
+    })
+    
+    socket.on('hi', function(msg) {
+        console.log('socket hi >>>', msg);
+    })
 });
+
+// 보내는 것은 전체 보내기가 되는데
+// 받는것은 전체 받기가 안된다????
+var news = io.of('/news').on('connection', function(socket){
+    // 메세지 받기
+    news.on('hi', function(msg) {
+        console.log('news hi >>> ', msg);
+    })
+    
+    socket.on('hi', function(msg) {
+        console.log('socket hi >>>', msg);
+    })
+})
