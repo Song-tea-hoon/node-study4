@@ -7,7 +7,7 @@ const cors = require('cors');
 // CORS미들웨어 설정
 app.set('port', 8888);
 
-app.use(cors());
+
 
 router.route("/plus/:a/:b").get((req, res)=>{
     let a = req.params.a; // 문자열 타입
@@ -31,6 +31,7 @@ router.route("/div/:a/:b").get((req, res)=>{
     res.end(String(parseInt(req.params.a) / parseInt(req.params.b)));
 })
 
+app.use(cors());
 app.use('/', router);
 const server = http.createServer(app);
 app.listen(app.get('port'), () => {
