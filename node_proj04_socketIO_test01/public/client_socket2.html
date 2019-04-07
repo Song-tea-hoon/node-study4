@@ -13,6 +13,14 @@
             socket.emit('private message', data, 'hello');
         });
         
+        socket.on('user disconnected', function(){
+            console.log('user disconnected');
+        });
+        
+        setTimeout(function(){
+            console.log('5초뒤에 socket close');
+            socket.close();
+        }, 5000)
     </script>
 </body>
 </html>
